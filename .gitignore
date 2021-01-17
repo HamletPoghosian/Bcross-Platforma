@@ -8,6 +8,10 @@
 /Bcross.Platform/.vs/Bcross.Platform/v16
 /Bcross.Platform/Bcross.Platform/obj/Debug/netcoreapp3.1
 /Bcross.Platform/Bcross.Platform/obj
+/Bcross.Platform/.vs/Bcross.Platform/DesignTimeBuild/.dtbcache
+/Bcross.Platform/Bcross.Platform/bin/Debug/netcoreapp3.1
+/Bcross.Platform/Bcross.Platforma.Application/obj
+
 # User-specific files
 *.rsuser
 *.suo
