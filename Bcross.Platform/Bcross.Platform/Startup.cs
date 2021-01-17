@@ -18,6 +18,8 @@ namespace Bcross.Platform
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +28,9 @@ namespace Bcross.Platform
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
