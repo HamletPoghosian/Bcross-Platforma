@@ -2,7 +2,7 @@
 
 namespace Bcross.Platforma.Domain
 {
-    public class NewCompany
+    public class CompanyDto
     {
     }
 }
