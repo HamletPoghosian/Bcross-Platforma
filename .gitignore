@@ -11,3 +11,27 @@
 /Bcross.Platform/.vs/Bcross.Platform/DesignTimeBuild/.dtbcache
 /Bcross.Platform/Bcross.Platform/bin/Debug/netcoreapp3.1
 /Bcross.Platform/Bcross.Platforma.Application/obj
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
