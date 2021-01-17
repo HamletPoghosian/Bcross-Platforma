@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/Bcross.Platform/v16
+/.vs
+/Bcross.Platform/.vs/Bcross.Platform/v16/Server/sqlite3
+/Bcross.Platform/.vs/Bcross.Platform/v16
+/Bcross.Platform/Bcross.Platform/obj/Debug/netcoreapp3.1
+/Bcross.Platform/Bcross.Platform/obj
