@@ -8,7 +8,7 @@
 __________
 ### Technology Utilized
 __________
-+ MVC
++ WEB API
 + REST
 + Repository Pattern
 + Dependency Injection
