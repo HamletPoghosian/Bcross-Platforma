@@ -36,3 +36,4 @@ bld/
 [Oo]bj/
 [Ll]og/
 /Bcross.Platform/.vs/Bcross.Platform/config/applicationhost.config
+/Bcross.Platform/.vs/Bcross.Platform/DesignTimeBuild/.dtbcache.v2
