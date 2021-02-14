@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Bcross.Platforma.MVC.Models.Company;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,22 @@ namespace Bcross.Platforma.MVC.Controllers
         }
 
         // GET: Company/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetCompanyById(int id)
+        {
+            return View();
+        }
+
+        public ActionResult<CompanyDTO> GetCompany(CompanyDTO  companyDTO)
+        {
+            return View();
+        }
+
+        public ActionResult<List<CompanyDTO>> GetAllCompanies()
+        {
+            return View();
+        }
+
+        public ActionResult<List<CompanyDTO>> SearchCompanies()
         {
             return View();
         }

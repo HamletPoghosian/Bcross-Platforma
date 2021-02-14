@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Company\" />
+    <Folder Include="Models\DBContext\" />
   </ItemGroup>
 
 </Project>
