@@ -44,6 +44,8 @@ namespace Bcross.Platforma.MVC.Models.Company
         [MaxLength(50)]
         public string RegistrationNumber { get; set; }
 
-       
+        public string Code { get; set; }
+
+        public string LogoUrl { get; set; }
     }
 }
