@@ -29,7 +29,6 @@ namespace Bcross.Platforma.MVC
             services.AddControllersWithViews();
             services.AddDbContext<BcrossContext>(options =>
             {
-
                 options.UseSqlServer(connectionString);
             });
         }
