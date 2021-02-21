@@ -1,6 +1,8 @@
+using Bcross.Platforma.MVC.Models.AppDBContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +25,13 @@ namespace Bcross.Platforma.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("BcrossContext");
             services.AddControllersWithViews();
+            services.AddDbContext<BcrossContext>(options =>
+            {
+
+                options.UseSqlServer(connectionString);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +44,6 @@ namespace Bcross.Platforma.MVC
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
@@ -52,6 +59,24 @@ namespace Bcross.Platforma.MVC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SetupDbSchemas(app);
+
+        }
+
+        private void SetupDbSchemas(IApplicationBuilder applicationBuilder)
+        {
+            using (var scope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var bcrossContext = scope.ServiceProvider.GetRequiredService<BcrossContext>();
+                SetupDbSchema(bcrossContext);
+            }
+        }
+
+        protected virtual void SetupDbSchema(DbContext dbContext)
+        {
+            dbContext.Database.SetCommandTimeout((int)TimeSpan.FromMinutes(20).TotalSeconds);
+            dbContext.Database.Migrate();
         }
     }
 }

@@ -11,8 +11,10 @@ namespace Bcross.Platforma.MVC.Models.Company
         public long Id { get; set; }
 
         [Required]
-        [MaxLength(70, ErrorMessage = "The Company Name field may not be greater than 70 characters.")]
         public string Name { get; set; }
+
+        [Required]
+        public string Country { get; set; }
 
         [Required]
         [MaxLength(2)]
@@ -28,14 +30,13 @@ namespace Bcross.Platforma.MVC.Models.Company
         [MaxLength(10)]
         public string Zip { get; set; }
 
-        [Display(Name = "AddressLines")]
-        public IEnumerable<string> Lines { get; set; }
-
-        [Display(Name = "Emails")]
-        public IEnumerable<string> Emails { get; set; }
-
-        [Display(Name = "PhoneNumbers")]
-        public IEnumerable<string> Phones { get; set; }
+        public string Line { get; set; }
+       
+        [Required]
+        public string Email { get; set; }
+       
+        [Required]
+        public string Phone { get; set; }
 
         [MaxLength(250)]
         public string Remarks { get; set; }
