@@ -2,7 +2,6 @@
 
 ![Bcross](https://dewey.tailorbrands.com/production/brand_version_mockup_image/319/3853376319_adea5418-0829-45a9-81c6-15a94b168cf7.png?cb=1601812145%27)
 
-![Bcross1](https://drive.google.com/uc?export=view&id=16PMHZyQZfRUIHzyBSVPAXaI1ZRaOvGUA)
 
 # Bcross 
 ## Business Platform for Companies
@@ -30,5 +29,9 @@ __________
 + Microsoft.AspNetCore.Mvc.NewtonsoftJson
 + Microsoft.AspNetCore.JsonPatch
 __________
+
+
+![Bcross1](https://drive.google.com/uc?export=view&id=1RYRNIdH4XrF7-u02PILXESF2BdYezoWq)
+
 
 ### 2021 
