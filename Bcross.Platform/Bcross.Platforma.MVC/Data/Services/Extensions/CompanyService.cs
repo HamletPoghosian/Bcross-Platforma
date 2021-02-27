@@ -22,28 +22,36 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
         public async Task<List<CompanyDTO>> GetAllCompaniesAsync()
         {
             var companies = await _companyRepository.GetAllCompanies();
-           var companyDTOs = _companyMapper.ToCompanyDTO(companies);
+            var companyDTOs = _companyMapper.ToCompanyDTO(companies);
             return companyDTOs;
         }
 
         public async Task<CompanyDTO> GetCompanyByCountryCodeAsync(string companyCode)
         {
-            throw new NotImplementedException();
+            var company = await _companyRepository.GetCompanyByCountryCode(companyCode);
+            var companyDTO = _companyMapper.ToCompanyDTO(company);
+            return companyDTO;
         }
 
         public async Task<CompanyDTO> GetCompanyByIdAsync(long id)
         {
-            throw new NotImplementedException();
+            var company = await _companyRepository.GetCompanyById(id);
+            var companyDTO = _companyMapper.ToCompanyDTO(company);
+            return companyDTO;
         }
 
         public async Task<List<CompanyDTO>> GetCompanyByIdsAsync(List<long> companyIds)
         {
-            throw new NotImplementedException();
+            var companies = await _companyRepository.GetCompanyByIds(companyIds);
+            var companyDTO = _companyMapper.ToCompanyDTO(companies);
+            return companyDTO;
         }
 
         public async Task<CompanyDTO> GetCompanyByNameAsync(string companyName)
         {
-            throw new NotImplementedException();
+            var company = await _companyRepository.GetCompanyByName(companyName);
+            var companyDTO = _companyMapper.ToCompanyDTO(company);
+            return companyDTO;
         }
     }
 }
