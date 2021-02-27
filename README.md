@@ -30,8 +30,18 @@ __________
 + Microsoft.AspNetCore.JsonPatch
 __________
 
+## Step1
+![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1BKXpW4sCDGPokamE0hqLBXLpDFKatg6k)
 
-![Bcross1](https://drive.google.com/uc?export=view&id=1RYRNIdH4XrF7-u02PILXESF2BdYezoWq)
+## Step2
+![Bcross_schema2](https://drive.google.com/uc?export=view&id=1tEP05t5R-No1RLlyP72y9GZKZl_xJffV)
 
+## Step2.1
+![Bcross_schema3](https://drive.google.com/uc?export=view&id=1iquzpF5SGOVOrdnuh8GDgqBH4Q5cFve_)
+
+## Step3
+![Bcross_schema4](https://drive.google.com/uc?export=view&id=1RYRNIdH4XrF7-u02PILXESF2BdYezoWq)
+
+__________
 
 ### 2021 
