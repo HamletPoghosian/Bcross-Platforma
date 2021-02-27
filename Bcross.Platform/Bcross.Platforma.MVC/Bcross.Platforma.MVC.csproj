@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Services\Extensions\" />
-    <Folder Include="Data\Services\Interfaces\" />
     <Folder Include="Models\Enums\" />
   </ItemGroup>
 

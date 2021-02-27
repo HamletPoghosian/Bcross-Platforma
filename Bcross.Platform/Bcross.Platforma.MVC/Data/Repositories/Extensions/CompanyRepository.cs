@@ -59,5 +59,18 @@ namespace Bcross.Platforma.MVC.Data.Repositories
 
             return company;
         }
+
+        public async Task<Company> GetCompanyByCountryCode(string companyCode)
+        {
+            if (string.IsNullOrEmpty(companyCode))
+            {
+                return null;
+            }
+
+            var company = await _context.Company.Where(c => c.CountryCode.Contains(companyCode)).FirstOrDefaultAsync();
+
+            return company;
+        }
+
     }
 }
