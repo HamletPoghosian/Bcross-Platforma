@@ -10,6 +10,6 @@ namespace Bcross.Platforma.MVC.Data.Mappers
     public interface ICompanyMapper
     {
         List<CompanyDTO> ToCompanyDTO(List<Company> company);
-        CompanyDTO ToCompanyDTO(Company companies);
+        CompanyDTO ToCompanyDTO(Company company);
     }
 }
