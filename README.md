@@ -2,7 +2,7 @@
 
 ![Bcross](https://dewey.tailorbrands.com/production/brand_version_mockup_image/319/3853376319_adea5418-0829-45a9-81c6-15a94b168cf7.png?cb=1601812145%27)
 
-![Bcross](https://drive.google.com/uc?export=view&id=16PMHZyQZfRUIHzyBSVPAXaI1ZRaOvGUA)
+![Bcross1](https://drive.google.com/uc?export=view&id=16PMHZyQZfRUIHzyBSVPAXaI1ZRaOvGUA)
 
 # Bcross 
 ## Business Platform for Companies
