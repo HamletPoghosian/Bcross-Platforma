@@ -13,5 +13,9 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Interfaces
         Task<Company> GetCompanyByName(string companyName);
         Task<List<Company>> GetCompanyByIds(List<long> companyIds);
         Task<Company> GetCompanyByCountryCode(string companyCode);
+        Task<Company> CreateCompany(Company company);
+        Task<Company> UpdateCompany(Company company);
+        Task<Company> DeleteCompany(Company company);
+        Task<Company> DeleteCompanyById(long companyId);
     }
 }
