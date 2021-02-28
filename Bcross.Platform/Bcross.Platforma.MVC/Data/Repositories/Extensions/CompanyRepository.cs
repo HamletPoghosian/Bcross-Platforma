@@ -20,7 +20,9 @@ namespace Bcross.Platforma.MVC.Data.Repositories
 
         public async Task<List<Company>> GetAllCompanies()
         {
-            var compies = await _context.Company.ToListAsync();
+            var compies = await _context.Company
+                .AsNoTracking()
+                .ToListAsync();
             return compies;
         }
 
@@ -31,7 +33,9 @@ namespace Bcross.Platforma.MVC.Data.Repositories
                 return null;
             }
 
-           var company = await _context.Company.Where(c => c.Id == id).FirstOrDefaultAsync();
+           var company = await _context.Company.Where(c => c.Id == id)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
             return company;
         }
@@ -43,7 +47,9 @@ namespace Bcross.Platforma.MVC.Data.Repositories
                 return null;
             }
 
-            var company = await _context.Company.Where(c => companyIds.Contains(c.Id)).ToListAsync();
+            var company = await _context.Company.Where(c => companyIds.Contains(c.Id))
+                .AsNoTracking()
+                .ToListAsync();
 
             return company.Count == 0 ? null : company;
         }
@@ -55,7 +61,9 @@ namespace Bcross.Platforma.MVC.Data.Repositories
                 return null;
             }
 
-            var company = await _context.Company.Where(c => c.Name.Contains(companyName)).FirstOrDefaultAsync();
+            var company = await _context.Company.Where(c => c.Name.Contains(companyName))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
             return company;
         }
@@ -67,19 +75,52 @@ namespace Bcross.Platforma.MVC.Data.Repositories
                 return null;
             }
 
-            var company = await _context.Company.Where(c => c.CountryCode.Contains(companyCode)).FirstOrDefaultAsync();
+            var company = await _context.Company.Where(c => c.CountryCode.Contains(companyCode))
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
 
             return company;
         }
 
-        public Task<Company> CreateCompany(Company company)
+        public async void CreateCompany(Company company)
         {
-            throw new NotImplementedException();
+            if (company == null)
+                return;
+
+            await _context.AddAsync(company);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Company> UpdateCompany(Company company)
+        public async Task<Company> UpdateCompany(Company company)
         {
-            throw new NotImplementedException();
+            if (company == null)
+                return null;
+
+            var existingCompany = await _context.Company.Where(c => c.Id == company.Id).FirstOrDefaultAsync();
+           
+            if (existingCompany != null)
+            {
+                existingCompany.City = company.City;
+                existingCompany.Code = company.Code;
+                existingCompany.Country = company.Country;
+                existingCompany.CountryCode = company.CountryCode;
+                existingCompany.Email = company.Email;
+                existingCompany.AddressLine = company.AddressLine;
+                existingCompany.LogoUrl = company.LogoUrl;
+                existingCompany.Name = company.Name;
+                existingCompany.Phone = company.Phone;
+                existingCompany.RegistrationNumber = company.RegistrationNumber;
+                existingCompany.Remarks = company.Remarks;
+                existingCompany.StateCode = company.StateCode;
+                existingCompany.Zip = company.Zip;
+
+                _context.Update(existingCompany);
+                await _context.SaveChangesAsync();
+
+                return existingCompany;
+            }
+
+            return null;
         }
 
         public Task<Company> DeleteCompany(Company company)
