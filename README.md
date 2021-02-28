@@ -36,6 +36,15 @@ __________
 + Microsoft.AspNetCore.JsonPatch
 __________
 
+## Introduction
+
+![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1oE8oqeMMnEEMuqNmndRp7x_6jYSm_7Q7)
+![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1o_ER1FFOU55nxmxiGy7ZBjUna4xf8OvZ)
+![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1bz0Hq5lpjfFatmbfpS6hQOv0rxAQcR4S)
+![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1XhWormn9v9pC1WghD9TEO-LgN9RW3d4l)
+![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1At9fq0-iTnPm8cDGEHFCmkD9LBV5dIFX)
+
+
 ## Step1
 ![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1BKXpW4sCDGPokamE0hqLBXLpDFKatg6k)
 
