@@ -72,5 +72,24 @@ namespace Bcross.Platforma.MVC.Data.Repositories
             return company;
         }
 
+        public Task<Company> CreateCompany(Company company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Company> UpdateCompany(Company company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Company> DeleteCompany(Company company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Company> DeleteCompanyById(long companyId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
