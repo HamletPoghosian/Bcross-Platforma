@@ -12,7 +12,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
         public CompanyMapper()
         {
 
-        }
+        }      
 
         public List<CompanyDTO> ToCompanyDTO(List<Company> companies)
         {
@@ -72,6 +72,66 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 
 
             return companyDTO;
+        }
+
+        public List<Company> ToCompany(List<CompanyDTO> companies)
+        {
+            if (companies == null || companies.Count == 0)
+                return null;
+
+            List<Company> companyDB = new List<Company>();
+
+            foreach (var company in companies)
+            {
+                companyDB.Add(new Company
+                {
+                    Id = company.Id,
+                    City = company.City,
+                    Code = company.Code,
+                    Country = company.Country,
+                    CountryCode = company.CountryCode,
+                    Email = company.Email,
+                    AddressLine = company.Line,
+                    LogoUrl = company.LogoUrl,
+                    Name = company.Name,
+                    Phone = company.Phone,
+                    RegistrationNumber = company.RegistrationNumber,
+                    Remarks = company.Remarks,
+                    StateCode = company.StateCode,
+                    Zip = company.Zip,
+                });
+            }
+
+            return companyDB;
+        }
+
+        public Company ToCompany(CompanyDTO companyDTO)
+        {
+            if (companyDTO == null)
+                return null;
+
+            Company companyDB;
+
+            companyDB = new Company
+            {
+                Id = companyDTO.Id,
+                City = companyDTO.City,
+                Code = companyDTO.Code,
+                Country = companyDTO.Country,
+                CountryCode = companyDTO.CountryCode,
+                Email = companyDTO.Email,
+                AddressLine = companyDTO.Line,
+                LogoUrl = companyDTO.LogoUrl,
+                Name = companyDTO.Name,
+                Phone = companyDTO.Phone,
+                RegistrationNumber = companyDTO.RegistrationNumber,
+                Remarks = companyDTO.Remarks,
+                StateCode = companyDTO.StateCode,
+                Zip = companyDTO.Zip,
+            };
+
+
+            return companyDB;
         }
     }
 }

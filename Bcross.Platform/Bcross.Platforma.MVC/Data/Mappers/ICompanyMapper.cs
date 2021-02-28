@@ -11,5 +11,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
     {
         List<CompanyDTO> ToCompanyDTO(List<Company> company);
         CompanyDTO ToCompanyDTO(Company company);
+        List<Company> ToCompany(List<CompanyDTO> company);
+        Company ToCompany(CompanyDTO company);
     }
 }
