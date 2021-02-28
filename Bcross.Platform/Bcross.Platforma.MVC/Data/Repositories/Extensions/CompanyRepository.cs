@@ -123,14 +123,28 @@ namespace Bcross.Platforma.MVC.Data.Repositories
             return null;
         }
 
-        public Task<Company> DeleteCompany(Company company)
+        public async void DeleteCompanyByName(string companyName)
         {
-            throw new NotImplementedException();
+
+            if (string.IsNullOrEmpty(companyName))
+                return ;
+
+            var existingCompany = await _context.Company.Where(c => c.Name == companyName ).FirstOrDefaultAsync();
+           
+            _context.Remove(existingCompany);
+            await _context.SaveChangesAsync();
+
         }
 
-        public Task<Company> DeleteCompanyById(long companyId)
+        public async void DeleteCompanyById(long companyId)
         {
-            throw new NotImplementedException();
+            if (companyId < 1) 
+                return;
+
+            var existingCompany = await _context.Company.Where(c => c.Id == companyId).FirstOrDefaultAsync();
+
+            _context.Remove(existingCompany);
+            await _context.SaveChangesAsync();
         }
     }
 }
