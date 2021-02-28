@@ -19,6 +19,9 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
             _companyRepository = companyRepository;
             _companyMapper = companyMapper;
         }
+
+ 
+
         public async Task<List<CompanyDTO>> GetAllCompaniesAsync()
         {
             var companies = await _companyRepository.GetAllCompanies();
@@ -52,6 +55,26 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
             var company = await _companyRepository.GetCompanyByName(companyName);
             var companyDTO = _companyMapper.ToCompanyDTO(company);
             return companyDTO;
+        }
+
+        public Task<CompanyDTO> UpdateCompany(Models.DbModels.Company company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateCompany(CompanyDTO company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCompanyById(long companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCompanyByName(string companyName)
+        {
+            throw new NotImplementedException();
         }
     }
 }
