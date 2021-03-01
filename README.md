@@ -9,10 +9,12 @@
 ![Bcross](https://dewey.tailorbrands.com/production/brand_version_mockup_image/319/3853376319_adea5418-0829-45a9-81c6-15a94b168cf7.png?cb=1601812145%27)
 
 ## Business Platform for Companies
+
 ### Meet your success in the business crossroad
 
 __________
 ### Technology Utilized
+
 ![Bcross_scelma1](https://drive.google.com/uc?export=view&id=10bOmy9P4CrN5_6CA7FHJK2IwM9e6s2Zk)
 
 __________
