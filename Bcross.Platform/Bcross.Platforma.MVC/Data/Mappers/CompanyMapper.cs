@@ -74,7 +74,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
             return companyDTO;
         }
 
-        public List<Company> ToCompany(List<CompanyDTO> companies)
+        public List<Company> ToCompanyDB(List<CompanyDTO> companies)
         {
             if (companies == null || companies.Count == 0)
                 return null;
@@ -105,7 +105,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
             return companyDB;
         }
 
-        public Company ToCompany(CompanyDTO companyDTO)
+        public Company ToCompanyDB(CompanyDTO companyDTO)
         {
             if (companyDTO == null)
                 return null;

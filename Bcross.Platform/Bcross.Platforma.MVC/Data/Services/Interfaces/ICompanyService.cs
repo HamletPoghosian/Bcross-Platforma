@@ -12,9 +12,9 @@ namespace Bcross.Platforma.MVC.Data.Services.Interfaces
         Task<CompanyDTO> GetCompanyByNameAsync(string companyName);
         Task<List<CompanyDTO>> GetCompanyByIdsAsync(List<long> companyIds);
         Task<CompanyDTO> GetCompanyByCountryCodeAsync(string companyCode);
-        void CreateCompany(CompanyDTO company);
-        Task<CompanyDTO> UpdateCompany(Company company);
-        void DeleteCompanyByName(string companyName);
-        void DeleteCompanyById(long companyId);
+        Task<CompanyDTO> CreateCompanyAsync(CompanyDTO company);
+        Task<CompanyDTO> UpdateCompanyAsync(CompanyDTO company);
+        void DeleteCompanyByNameAsync(string companyName);
+        void DeleteCompanyByIdAsync(long companyId);
     }
 }

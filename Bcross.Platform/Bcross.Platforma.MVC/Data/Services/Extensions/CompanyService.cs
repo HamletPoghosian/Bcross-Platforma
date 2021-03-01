@@ -2,6 +2,7 @@
 using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
 using Bcross.Platforma.MVC.Data.Services.Interfaces;
 using Bcross.Platforma.MVC.Models.Company;
+using Bcross.Platforma.MVC.Models.DbModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,9 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
         public async Task<CompanyDTO> GetCompanyByCountryCodeAsync(string companyCode)
         {
+            if (string.IsNullOrEmpty(companyCode))
+                return null;
+
             var company = await _companyRepository.GetCompanyByCountryCode(companyCode);
             var companyDTO = _companyMapper.ToCompanyDTO(company);
             return companyDTO;
@@ -38,6 +42,9 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
         public async Task<CompanyDTO> GetCompanyByIdAsync(long id)
         {
+            if (id < 1) 
+                return null;
+
             var company = await _companyRepository.GetCompanyById(id);
             var companyDTO = _companyMapper.ToCompanyDTO(company);
             return companyDTO;
@@ -45,6 +52,9 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
         public async Task<List<CompanyDTO>> GetCompanyByIdsAsync(List<long> companyIds)
         {
+            if (companyIds == null || companyIds.Count < 1) 
+                return null;
+
             var companies = await _companyRepository.GetCompanyByIds(companyIds);
             var companyDTO = _companyMapper.ToCompanyDTO(companies);
             return companyDTO;
@@ -52,28 +62,51 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
         public async Task<CompanyDTO> GetCompanyByNameAsync(string companyName)
         {
+            if (string.IsNullOrEmpty(companyName))
+                return null;
             var company = await _companyRepository.GetCompanyByName(companyName);
             var companyDTO = _companyMapper.ToCompanyDTO(company);
             return companyDTO;
         }
 
-        public Task<CompanyDTO> UpdateCompany(Models.DbModels.Company company)
+        public async Task<CompanyDTO> UpdateCompanyAsync(CompanyDTO companyDTO)
         {
+            if (companyDTO == null)
+                return null;
+            
+            var companyDB = _companyMapper.ToCompanyDB(companyDTO);
+
+            var company = await _companyRepository.UpdateCompany(companyDB);
+
+            return _companyMapper.ToCompanyDTO(company);
+        }
+
+        public async Task<CompanyDTO> CreateCompanyAsync(CompanyDTO companyDTO)
+        {
+            if (companyDTO == null)
+                return null;
+
+            var companyDB = _companyMapper.ToCompanyDB(companyDTO);
+
+            var company = await _companyRepository.CreateCompany(companyDB);
+
+            return _companyMapper.ToCompanyDTO(company);
+
+        }
+
+        public void DeleteCompanyByIdAsync(long companyId)
+        {
+            if (companyId < 1)
+                return;
+
             throw new NotImplementedException();
         }
 
-        public void CreateCompany(CompanyDTO company)
+        public void DeleteCompanyByNameAsync(string companyName)
         {
-            throw new NotImplementedException();
-        }
+            if (string.IsNullOrEmpty(companyName))
+                return;
 
-        public void DeleteCompanyById(long companyId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteCompanyByName(string companyName)
-        {
             throw new NotImplementedException();
         }
     }

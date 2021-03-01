@@ -82,13 +82,16 @@ namespace Bcross.Platforma.MVC.Data.Repositories
             return company;
         }
 
-        public async void CreateCompany(Company company)
+        public async Task<Company> CreateCompany(Company company)
         {
             if (company == null)
-                return;
+                return null;
 
             await _context.AddAsync(company);
             await _context.SaveChangesAsync();
+
+            var companyDB = await GetCompanyByName(company.Name);
+            return companyDB;
         }
 
         public async Task<Company> UpdateCompany(Company company)
