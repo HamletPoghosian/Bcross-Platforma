@@ -1,5 +1,7 @@
 ﻿using Bcross.Platforma.MVC.Data.Repositories;
 using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
+using Bcross.Platforma.MVC.Data.Services.Extensions;
+using Bcross.Platforma.MVC.Data.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace Bcross.Platforma.MVC.Data
         public static IServiceCollection AddInfrastructureDi(this IServiceCollection services)
         {
             services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<ICompanyService, CompanyService>();
 
 
             return services;

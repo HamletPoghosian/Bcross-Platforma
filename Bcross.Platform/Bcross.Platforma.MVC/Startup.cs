@@ -1,3 +1,4 @@
+using Bcross.Platforma.MVC.Data;
 using Bcross.Platforma.MVC.Models.AppDBContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace Bcross.Platforma.MVC
             {
                 options.UseSqlServer(connectionString);
             });
+            services.AddInfrastructureDi();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
