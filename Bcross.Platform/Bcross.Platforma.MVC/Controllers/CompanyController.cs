@@ -59,10 +59,12 @@ namespace Bcross.Platforma.MVC.Controllers
         // POST: Company/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(CompanyDTO companyDTO)
         {
             try
             {
+                var companyDTOs = await _companyService.CreateCompanyAsync(companyDTO);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
