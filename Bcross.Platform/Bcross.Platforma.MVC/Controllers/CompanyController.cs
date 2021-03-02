@@ -1,4 +1,5 @@
-﻿using Bcross.Platforma.MVC.Models.Company;
+﻿using Bcross.Platforma.MVC.Data.Services.Interfaces;
+using Bcross.Platforma.MVC.Models.Company;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,12 @@ namespace Bcross.Platforma.MVC.Controllers
 {
     public class CompanyController : Controller
     {
+        private readonly ICompanyService _companyService;
+
+        public CompanyController(ICompanyService companyService)
+        {
+            _companyService = companyService;
+        }
         // GET: Company
         public ActionResult Index()
         {
@@ -17,19 +24,25 @@ namespace Bcross.Platforma.MVC.Controllers
         }
 
         // GET: Company/Details/5
-        public ActionResult GetCompanyById(int id)
+        public async Task<ActionResult> GetCompanyById(int id)
         {
-            return View();
+            var company = await _companyService.GetCompanyByIdAsync(id);
+
+            return View(company);
         }
 
-        public ActionResult<CompanyDTO> GetCompany(CompanyDTO  companyDTO)
+        public async Task<ActionResult<CompanyDTO>> GetCompany(CompanyDTO  companyDTO)
         {
-            return View();
+            var company = await _companyService.GetCompanyByNameAsync(companyDTO.Name);
+
+            return View(company);
         }
 
-        public ActionResult<List<CompanyDTO>> GetAllCompanies()
+        public async Task<ActionResult<List<CompanyDTO>>> GetAllCompanies()
         {
-            return View();
+            var companyDTOs = await _companyService.GetAllCompaniesAsync();
+
+            return View(companyDTOs);
         }
 
         public ActionResult<List<CompanyDTO>> SearchCompanies()
