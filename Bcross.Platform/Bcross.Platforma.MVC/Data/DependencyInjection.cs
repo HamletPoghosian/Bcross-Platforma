@@ -1,4 +1,5 @@
-﻿using Bcross.Platforma.MVC.Data.Repositories;
+﻿using Bcross.Platforma.MVC.Data.Mappers;
+using Bcross.Platforma.MVC.Data.Repositories;
 using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
 using Bcross.Platforma.MVC.Data.Services.Extensions;
 using Bcross.Platforma.MVC.Data.Services.Interfaces;
@@ -16,6 +17,7 @@ namespace Bcross.Platforma.MVC.Data
         {
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<ICompanyMapper, CompanyMapper>();
 
 
             return services;
