@@ -47,5 +47,7 @@ namespace Bcross.Platforma.MVC.Models.Company
         public string Code { get; set; }
 
         public string LogoUrl { get; set; }
+        public int Rating { get; set; }
+
     }
 }
