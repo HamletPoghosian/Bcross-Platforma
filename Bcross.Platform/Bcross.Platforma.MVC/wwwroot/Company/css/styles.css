@@ -475,8 +475,8 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
-  height: auto;
+    width: 355px;
+    height: 280px;
 }
 
 .img-thumbnail {
@@ -10171,8 +10171,8 @@ header.masthead .masthead-heading {
     #portfolio .portfolio-item .portfolio-link .portfolio-hover {
         display: flex;
         position: absolute;
-        width: 100%;
-        height: 100%;
+        width: 355px;
+        height: 280px;
         background-color: #000363;
         align-items: center;
         justify-content: center;

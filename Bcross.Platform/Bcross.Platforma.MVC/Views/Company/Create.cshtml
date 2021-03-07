@@ -8,40 +8,95 @@
 <body>
     @using (Html.BeginForm("Create", "Company", FormMethod.Post))
     {
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th colspan="2" align="center">Person Details</th>
-            </tr>
-            <tr>
-                <td>PersonId: </td>
-                <td>
-                    @Html.TextBoxFor(m => m.Name)
-                </td>
-            </tr>
-            <tr>
-                <td>Name: </td>
-                <td>
-                    @Html.TextBoxFor(m => m.Country)
-                </td>
-            </tr>
-            <tr>
-                <td>Gender: </td>
-                <td>
-                    @Html.DropDownListFor(m => m.Email, new List<SelectListItem>
-                   { new SelectListItem{Text="Male", Value="M"},
-                     new SelectListItem{Text="Female", Value="F"}}, "Please select")
-                </td>
-            </tr>
-            <tr>
-                <td>City: </td>
-                <td>
-                    @Html.TextBoxFor(m => m.City)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Submit" /></td>
-            </tr>
-        </table>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Person Details</th>
+        </tr>
+        <tr>
+            <td>Name: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>Country: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Country)
+            </td>
+        </tr>
+        <tr>
+            <td>CountryCode: </td>
+            <td>
+                @Html.TextBoxFor(m => m.CountryCode)
+            </td>
+        </tr>
+        <tr>
+            <td>StateCode: </td>
+            <td>
+                @Html.TextBoxFor(m => m.StateCode)
+            </td>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <td>
+                @Html.TextBoxFor(m => m.City)
+            </td>
+        </tr>
+        <tr>
+            <td>Zip: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Zip)
+            </td>
+        </tr>
+        <tr>
+            <td>Line: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Line)
+            </td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>Phone: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Phone)
+            </td>
+        </tr>
+        <tr>
+            <td>Remarks: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Remarks)
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>RegistrationNumber: </td>
+            <td>
+                @Html.TextBoxFor(m => m.RegistrationNumber)
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>Code: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Code)
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>LogoUrl: </td>
+            <td>
+                @Html.TextBoxFor(m => m.LogoUrl)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
     }
 </body>
