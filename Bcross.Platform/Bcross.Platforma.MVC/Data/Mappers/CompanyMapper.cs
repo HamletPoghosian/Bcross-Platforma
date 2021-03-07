@@ -39,6 +39,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                     Remarks = company.Remarks,
                     StateCode = company.StateCode,
                     Zip = company.Zip,
+                    Rating=company.Rating
                 });
 
             }
@@ -68,6 +69,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 Remarks = company.Remarks,
                 StateCode = company.StateCode,
                 Zip = company.Zip,
+                Rating=company.Rating
             };
 
 
@@ -99,6 +101,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                     Remarks = company.Remarks,
                     StateCode = company.StateCode,
                     Zip = company.Zip,
+                    Rating=company.Rating
                 });
             }
 
@@ -128,6 +131,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 Remarks = companyDTO.Remarks,
                 StateCode = companyDTO.StateCode,
                 Zip = companyDTO.Zip,
+                Rating=companyDTO.Rating
             };
 
 

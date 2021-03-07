@@ -116,6 +116,7 @@ namespace Bcross.Platforma.MVC.Data.Repositories
                 existingCompany.Remarks = company.Remarks;
                 existingCompany.StateCode = company.StateCode;
                 existingCompany.Zip = company.Zip;
+                existingCompany.Rating = company.Rating;
 
                 _context.Update(existingCompany);
                 await _context.SaveChangesAsync();
