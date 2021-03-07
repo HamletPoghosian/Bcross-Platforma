@@ -18,9 +18,11 @@ namespace Bcross.Platforma.MVC.Controllers
             _companyService = companyService;
         }
         // GET: Company
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var companyDTOs = await _companyService.GetAllCompaniesAsync();
+
+            return View(companyDTOs);
         }
 
         // GET: Company/Details/5
@@ -57,7 +59,7 @@ namespace Bcross.Platforma.MVC.Controllers
         }
 
         // POST: Company/Create
-        [HttpPost]
+        [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CompanyDTO companyDTO)
         {
