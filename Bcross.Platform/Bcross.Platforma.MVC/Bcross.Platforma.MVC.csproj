@@ -6,11 +6,44 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\assets\demo\chart-area-demo.js" />
-    <None Include="wwwroot\assets\demo\chart-bar-demo.js" />
-    <None Include="wwwroot\assets\demo\chart-pie-demo.js" />
-    <None Include="wwwroot\assets\demo\datatables-demo.js" />
-    <None Include="wwwroot\assets\img\error-404-monochrome.svg" />
+    <None Include="wwwroot\Company\assets\img\about\1.jpg" />
+    <None Include="wwwroot\Company\assets\img\about\2.jpg" />
+    <None Include="wwwroot\Company\assets\img\about\3.jpg" />
+    <None Include="wwwroot\Company\assets\img\about\4.jpg" />
+    <None Include="wwwroot\Company\assets\img\close-icon.svg" />
+    <None Include="wwwroot\Company\assets\img\favicon.ico" />
+    <None Include="wwwroot\Company\assets\img\header-bg.jpg" />
+    <None Include="wwwroot\Company\assets\img\logos\creative-market.jpg" />
+    <None Include="wwwroot\Company\assets\img\logos\designmodo.jpg" />
+    <None Include="wwwroot\Company\assets\img\logos\envato.jpg" />
+    <None Include="wwwroot\Company\assets\img\logos\themeforest.jpg" />
+    <None Include="wwwroot\Company\assets\img\map-image.png" />
+    <None Include="wwwroot\Company\assets\img\navbar-logo.svg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\01-full.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\01-thumbnail.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\02-full.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\02-thumbnail.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\03-full.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\03-thumbnail.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\04-full.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\04-thumbnail.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\05-full.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\05-thumbnail.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\06-full.jpg" />
+    <None Include="wwwroot\Company\assets\img\portfolio\06-thumbnail.jpg" />
+    <None Include="wwwroot\Company\assets\img\team\1.jpg" />
+    <None Include="wwwroot\Company\assets\img\team\2.jpg" />
+    <None Include="wwwroot\Company\assets\img\team\3.jpg" />
+    <None Include="wwwroot\Company\assets\mail\contact_me.js" />
+    <None Include="wwwroot\Company\assets\mail\contact_me.php" />
+    <None Include="wwwroot\Company\assets\mail\jqBootstrapValidation.js" />
+    <None Include="wwwroot\Company\css\styles.css" />
+    <None Include="wwwroot\Company\js\scripts.js" />
+    <None Include="wwwroot\Home\assets\demo\chart-area-demo.js" />
+    <None Include="wwwroot\Home\assets\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\Home\assets\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\Home\assets\demo\datatables-demo.js" />
+    <None Include="wwwroot\Home\assets\img\error-404-monochrome.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,10 +55,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Content\" />
   </ItemGroup>
 
 </Project>
