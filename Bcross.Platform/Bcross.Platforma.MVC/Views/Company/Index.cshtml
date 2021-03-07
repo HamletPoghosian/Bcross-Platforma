@@ -114,7 +114,7 @@
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
             <div class="row">
-                 @*@foreach (var item in Model)
+                 @foreach (var item in Model)
                 {
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
@@ -122,7 +122,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="Company/assets/img/portfolio/01-thumbnail.jpg" alt="" />
+                                <img class="img-fluid" src="@item.LogoUrl" alt="" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">@item.Name</div>
@@ -130,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                }*@
+                }
 
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="portfolio-item">
