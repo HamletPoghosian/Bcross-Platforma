@@ -51,6 +51,8 @@ namespace Bcross.Platforma.MVC.Models.DbModels
 
         [Column("logo_url")]
         public string LogoUrl { get; set; }
-
+       
+        [Column("rating")]
+        public int Rating { get; set; }
     }
 }
