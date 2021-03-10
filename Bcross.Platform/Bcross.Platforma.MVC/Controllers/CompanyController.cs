@@ -54,7 +54,7 @@ namespace Bcross.Platforma.MVC.Controllers
             return View();
         }
 
-        // GET: Company/Create
+        // GET: Company/Create 
         public ActionResult Create()
         {
             return View();
