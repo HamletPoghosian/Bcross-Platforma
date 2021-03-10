@@ -7,6 +7,7 @@ namespace Bcross.Platforma.MVC.Models.AppDBContext
     {
         public DbSet<DbModels.Company> Company { get; set; }
 
+        public DbSet<Contract> Contract { get; set; }
 
         public BcrossContext(DbContextOptions<BcrossContext> options)
             :base(options)
