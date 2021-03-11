@@ -34,9 +34,6 @@
     <None Include="wwwroot\Company\assets\img\team\1.jpg" />
     <None Include="wwwroot\Company\assets\img\team\2.jpg" />
     <None Include="wwwroot\Company\assets\img\team\3.jpg" />
-    <None Include="wwwroot\Company\assets\mail\contact_me.js" />
-    <None Include="wwwroot\Company\assets\mail\contact_me.php" />
-    <None Include="wwwroot\Company\assets\mail\jqBootstrapValidation.js" />
     <None Include="wwwroot\Company\css\styles.css" />
     <None Include="wwwroot\Company\js\scripts.js" />
     <None Include="wwwroot\Home\assets\demo\chart-area-demo.js" />
