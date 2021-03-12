@@ -2,11 +2,6 @@
 
 <h1 accesskey="A"
       align="center"
-      dir="ltr"
-      itemprop="heading"
-      lang="en-US"
-      tabindex="1"
-      title="Example heading">
    Diploma Thesis
   </h1>
 
