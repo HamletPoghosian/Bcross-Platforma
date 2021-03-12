@@ -1,7 +1,14 @@
 
-<p align="center">
-# Diploma Thesis
-</p>
+
+<h1 accesskey="A"
+      align="center"
+      dir="ltr"
+      itemprop="heading"
+      lang="en-US"
+      tabindex="1"
+      title="Example heading">
+   Diploma Thesis
+  </h1>
 
 
 ![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1ccxdKx6PJSbMI1nndyxXk7EjNGgJJq7g)
