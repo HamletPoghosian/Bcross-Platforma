@@ -1,4 +1,4 @@
-#                                            Diploma Thesis
+# Diploma Thesis
 
 
 ![Bcross_scelma1](https://drive.google.com/uc?export=view&id=1ccxdKx6PJSbMI1nndyxXk7EjNGgJJq7g)
