@@ -52,7 +52,10 @@ namespace Bcross.Platforma.MVC.Models.DbModels
         [Column("logo_url")]
         public string LogoUrl { get; set; }
        
-        [Column("rating")]
-        public int Rating { get; set; }
+        [Column("rating_id")]
+        public long RatingId { get; set; }
+
+        [ForeignKey(nameof(RatingId))]
+        public Rating Rating { get; set; }
     }
 }
