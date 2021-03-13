@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
+using Bcross.Platforma.MVC.Models.DbModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -47,7 +49,7 @@ namespace Bcross.Platforma.MVC.Models.Company
         public string Code { get; set; }
 
         public string LogoUrl { get; set; }
-        public int Rating { get; set; }
+        public RatingDTO Rating { get; set; }
 
     }
 }

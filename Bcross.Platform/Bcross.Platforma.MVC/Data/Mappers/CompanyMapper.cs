@@ -1,4 +1,5 @@
 ﻿using Bcross.Platforma.MVC.Models.Company;
+using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
 using Bcross.Platforma.MVC.Models.DbModels;
 using System;
 using System.Collections.Generic;
@@ -39,8 +40,14 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                     Remarks = company.Remarks,
                     StateCode = company.StateCode,
                     Zip = company.Zip,
-                    Rating=company.Rating
-                });
+                    Rating = new RatingDTO
+                    {
+                        RatingId = company.Rating.RatingId,
+                        VotingCount = company.Rating.VotingCount,
+                        VotingValue = company.Rating.VotingValue
+
+                    }
+                }) ;
 
             }
             return companyDTO;
@@ -69,7 +76,13 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 Remarks = company.Remarks,
                 StateCode = company.StateCode,
                 Zip = company.Zip,
-                Rating=company.Rating
+                Rating = new RatingDTO
+                {
+                    RatingId = company.Rating.RatingId,
+                    VotingCount = company.Rating.VotingCount,
+                    VotingValue = company.Rating.VotingValue
+
+                }
             };
 
 
@@ -101,7 +114,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                     Remarks = company.Remarks,
                     StateCode = company.StateCode,
                     Zip = company.Zip,
-                    Rating=company.Rating
+                    RatingId=company.Rating.RatingId
                 });
             }
 
@@ -131,7 +144,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 Remarks = companyDTO.Remarks,
                 StateCode = companyDTO.StateCode,
                 Zip = companyDTO.Zip,
-                Rating=companyDTO.Rating
+                RatingId=companyDTO.Rating.RatingId
             };
 
 
