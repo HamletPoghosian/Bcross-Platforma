@@ -19,7 +19,7 @@ namespace Bcross.Platforma.MVC.Controllers
         }
 
         public IActionResult Index()
-        {
+        { 
             return View();
         }
 
