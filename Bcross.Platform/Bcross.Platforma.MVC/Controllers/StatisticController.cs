@@ -83,5 +83,10 @@ namespace Bcross.Platforma.MVC.Controllers
                 return View();
             }
         }
+
+        public ActionResult GetReting(int companyId)
+        {
+            return View();
+        }
     }
 }

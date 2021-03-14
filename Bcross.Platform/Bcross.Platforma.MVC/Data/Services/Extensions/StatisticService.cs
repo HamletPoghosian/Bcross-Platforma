@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace  Bcross.Platforma.MVC.Data.Services.Extensions
 {
-    public class StatisticRepository : IStatisticService
+    public class StatisticService : IStatisticService
     {
         public Task<RatingDTO> AddRating(long companyId, RatingDTO rating)
         {
