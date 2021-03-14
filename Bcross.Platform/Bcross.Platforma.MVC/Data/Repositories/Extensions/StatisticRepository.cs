@@ -9,6 +9,11 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 {
     public class StatisticRepository : IStatisticRepository
     {
+        public Task<Rating> AddRating(long companyId, Rating rating)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Company>> GetAllSuccessCompanies()
         {
             throw new NotImplementedException();
@@ -20,6 +25,16 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
         }
 
         public Task<List<Company>> GetAllSuccessCompaniesByRating(int rating)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Rating> GetRating(long companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Rating> UpdateRating(long companyId, Rating rating)
         {
             throw new NotImplementedException();
         }

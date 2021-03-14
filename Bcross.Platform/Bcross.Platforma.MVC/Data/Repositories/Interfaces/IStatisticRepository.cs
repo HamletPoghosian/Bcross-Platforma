@@ -11,5 +11,8 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Interfaces
         Task<List<Company>> GetAllSuccessCompanies();
         Task<List<Company>> GetAllSuccessCompaniesByRating(int rating);
         Task<List<Company>> GetAllSuccessCompaniesByCountry(string countryName);
+        Task<Rating> AddRating(long companyId, Rating rating);
+        Task<Rating> GetRating(long companyId);
+        Task<Rating> UpdateRating(long companyId, Rating rating);
     }
 }
