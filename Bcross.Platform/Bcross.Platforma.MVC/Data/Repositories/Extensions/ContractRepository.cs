@@ -1,4 +1,5 @@
 ﻿using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
+using Bcross.Platforma.MVC.Models.AppDBContext;
 using Bcross.Platforma.MVC.Models.DbModels;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 {
     public class ContractRepository : IContractRepository
     {
+        private readonly BcrossContext _context;
+
         public Task<Contract> CreateContract(Contract company)
         {
             throw new NotImplementedException();
