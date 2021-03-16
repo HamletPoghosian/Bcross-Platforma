@@ -12,6 +12,10 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
     {
         private readonly BcrossContext _context;
 
+        public ContractRepository(BcrossContext context)
+        {
+            _context = context;
+        }
         public Task<Contract> CreateContract(Contract company)
         {
             throw new NotImplementedException();

@@ -12,6 +12,10 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
     {
         private readonly BcrossContext _context;
 
+        public StatisticRepository(BcrossContext context)
+        {
+            _context = context;
+        }
         public Task<Rating> AddRating(long companyId, Rating rating)
         {
             throw new NotImplementedException();
