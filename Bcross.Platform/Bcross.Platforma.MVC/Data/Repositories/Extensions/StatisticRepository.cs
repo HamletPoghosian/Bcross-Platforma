@@ -1,6 +1,7 @@
 ﻿using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
 using Bcross.Platforma.MVC.Models.AppDBContext;
 using Bcross.Platforma.MVC.Models.DbModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,8 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 
         public Task<List<Company>> GetAllSuccessCompanies()
         {
-            throw new NotImplementedException();
+            var company = _context.Rating.Where(c => c.VotingValue > 8).AsNoTracking().ToList();
+            return company;
         }
 
         public Task<List<Company>> GetAllSuccessCompaniesByCountry(string countryName)
