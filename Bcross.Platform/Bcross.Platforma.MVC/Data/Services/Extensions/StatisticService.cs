@@ -12,6 +12,11 @@ namespace  Bcross.Platforma.MVC.Data.Services.Extensions
 {
     public class StatisticService : IStatisticService
     {
+        public StatisticService()
+        {
+
+        }
+
         public Task<RatingDTO> AddRating(long companyId, RatingDTO rating)
         {
             throw new NotImplementedException();

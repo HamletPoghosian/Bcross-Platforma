@@ -16,9 +16,14 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
         {
             _context = context;
         }
-        public Task<Rating> AddRating(long companyId, Rating rating)
+        public async Task<Rating> AddRating(long companyId, Rating rating)
         {
-            throw new NotImplementedException();
+            var company = _context.Company.Where(c => c.Id == companyId).FirstOrDefault();
+            company.Rating = rating;
+
+            await _context.SaveChangesAsync();
+
+            return company.Rating;
         }
 
         public Task<List<Company>> GetAllSuccessCompanies()
