@@ -54,6 +54,20 @@ namespace Bcross.Platforma.MVC.Data.Repositories
             return company.Count == 0 ? null : company;
         }
 
+        public async Task<List<Company>> GetCompanyByRatingIds(List<long> ratingIds)
+        {
+            if (ratingIds.Count == 0)
+            {
+                return null;
+            }
+
+            var company = await _context.Company.Where(c => ratingIds.Contains(c.RatingId))
+                .AsNoTracking()
+                .ToListAsync();
+
+            return company.Count == 0 ? null : company;
+        }
+
         public async Task<Company> GetCompanyByName(string companyName)
         {
             if (string.IsNullOrEmpty(companyName))

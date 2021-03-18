@@ -17,5 +17,6 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Interfaces
         Task<Company> UpdateCompany(Company company);
         void DeleteCompanyByName(string companyName);
         void DeleteCompanyById(long companyId);
+        Task<List<Company>> GetCompanyByRatingIds(List<long> ratingIds);
     }
 }

@@ -12,10 +12,12 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
     public class StatisticRepository : IStatisticRepository
     {
         private readonly BcrossContext _context;
+        private readonly ICompanyRepository _companyRepository;
 
-        public StatisticRepository(BcrossContext context)
+        public StatisticRepository(BcrossContext context, ICompanyRepository companyRepository)
         {
             _context = context;
+            _companyRepository = companyRepository;
         }
         public async Task<Rating> AddRating(long companyId, Rating rating)
         {
@@ -27,10 +29,16 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             return company.Rating;
         }
 
-        public Task<List<Company>> GetAllSuccessCompanies()
+        public async Task<List<Company>> GetAllSuccessCompanies()
         {
-            var company = _context.Rating.Where(c => c.VotingValue > 8).AsNoTracking().ToList();
-            return company;
+            var companyRating = _context.Rating.Where(c => c.VotingValue > 8).AsNoTracking().ToList();
+
+            var ratingId = companyRating.Select( e => e.RatingId).ToList();
+
+            var companies = await _companyRepository.GetCompanyByRatingIds(ratingId);
+
+            return companies;
+
         }
 
         public Task<List<Company>> GetAllSuccessCompaniesByCountry(string countryName)
