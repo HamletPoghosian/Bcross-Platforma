@@ -35,7 +35,9 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 
         public Task<List<Company>> GetAllSuccessCompaniesByCountry(string countryName)
         {
-            throw new NotImplementedException();
+            var company = _context.Rating.Where(c => c.VotingValue > 8).AsNoTracking().ToList();
+            var successCompany = company.Select(e => e.Companies.Where(ee => ee.Country == countryName)).ToList();
+            return successCompany;
         }
 
         public Task<List<Company>> GetAllSuccessCompaniesByRating(int rating)
