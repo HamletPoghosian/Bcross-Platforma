@@ -87,10 +87,17 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             return companyRating;
         }
 
-        public Task<Rating> UpdateRating(long companyId, Rating rating)
+        public async Task<Rating> UpdateRating(long companyId, Rating rating)
         {
+            var company = _context.Company.Where(c => c.Id == companyId).FirstOrDefault();
+           
+            company.Rating.UpdatedDate = rating.UpdatedDate;
+            company.Rating.VotingCount = rating.VotingCount;
+            company.Rating.VotingValue = rating.VotingValue;
 
-            throw new NotImplementedException();
+            await _context.SaveChangesAsync();
+
+            return company.Rating;
         }
     }
 }
