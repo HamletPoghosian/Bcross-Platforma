@@ -1,4 +1,5 @@
-﻿using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
+﻿using Bcross.Platforma.MVC.Data.Mappers;
+using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
 using Bcross.Platforma.MVC.Data.Services.Interfaces;
 using Bcross.Platforma.MVC.Models.Company;
 using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
@@ -12,14 +13,26 @@ namespace  Bcross.Platforma.MVC.Data.Services.Extensions
 {
     public class StatisticService : IStatisticService
     {
-        public StatisticService()
-        {
+        private readonly IStatisticRepository _statisticRepository;
+        private readonly ICompanyMapper _companyMapper;
 
+        public StatisticService(IStatisticRepository statisticRepository, ICompanyMapper companyMapper)
+        {
+            _statisticRepository = statisticRepository;
+            _companyMapper = companyMapper;
         }
 
-        public Task<RatingDTO> AddRating(long companyId, RatingDTO rating)
+        public async Task<RatingDTO> AddRating(long companyId, RatingDTO rating)
         {
-            throw new NotImplementedException();
+            if (companyId > 0 && rating != null)
+            {
+                var ratingDB = _companyMapper.ToRating(rating);
+                var result = await _statisticRepository.AddRating(companyId, ratingDB);
+                var ratingDTO = _companyMapper.ToRatingDTO(result);
+
+                return ratingDTO;
+            }
+            return null;
         }
 
         public Task<List<CompanyDTO>> GetAllSuccessCompanies()

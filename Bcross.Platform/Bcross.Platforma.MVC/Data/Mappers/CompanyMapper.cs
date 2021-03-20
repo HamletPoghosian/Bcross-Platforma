@@ -150,5 +150,35 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 
             return companyDB;
         }
+
+        public RatingDTO ToRatingDTO(Rating rating)
+        {
+            if (rating != null)
+            {
+                return new RatingDTO()
+                {
+                    RatingId = rating.RatingId,
+                    UpdatedDate = rating.UpdatedDate,
+                    VotingCount = rating.VotingCount,
+                    VotingValue = rating.VotingValue
+                };
+            }
+            return null;
+        }
+
+        public Rating ToRating(RatingDTO rating)
+        {
+            if (rating != null)
+            {
+                return new Rating()
+                {
+                    RatingId = rating.RatingId,
+                    UpdatedDate = rating.UpdatedDate,
+                    VotingCount = rating.VotingCount,
+                    VotingValue = rating.VotingValue
+                };
+            }
+            return null;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Bcross.Platforma.MVC.Models.Company;
+using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
 using Bcross.Platforma.MVC.Models.DbModels;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
         CompanyDTO ToCompanyDTO(Company company);
         List<Company> ToCompanyDB(List<CompanyDTO> company);
         Company ToCompanyDB(CompanyDTO company);
+        RatingDTO ToRatingDTO(Rating company);
+        Rating ToRating(RatingDTO company);
     }
 }
