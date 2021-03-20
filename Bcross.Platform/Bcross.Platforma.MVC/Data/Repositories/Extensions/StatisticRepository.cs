@@ -41,10 +41,17 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 
         }
 
-        public Task<List<Company>> GetAllSuccessCompaniesByCountry(string countryName)
+        public async  Task<List<Company>> GetAllSuccessCompaniesByCountry(string countryName)
         {
-            var company = _context.Rating.Where(c => c.VotingValue > 8).AsNoTracking().ToList();
-            var successCompany = company.Select(e => e.Companies.Where(ee => ee.Country == countryName)).ToList();
+            var successCompany = await _context.Company.Join(_context.Rating,
+                s => s.RatingId,
+                ss => ss.RatingId,
+                (s, ss) => new { company = s, rating = ss })
+                .Where(ssa => ssa.rating.RatingId == ssa.rating.RatingId && ssa.company.Country== countryName)
+                .Select(ssa => ssa.company)
+                .AsNoTracking()
+                .ToListAsync();
+
             return successCompany;
         }
 
