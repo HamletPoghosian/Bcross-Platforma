@@ -58,16 +58,33 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             return successCompany;
         }
 
-        public Task<List<Company>> GetAllSuccessCompaniesByRating(int rating)
+        public async Task<List<Company>> GetAllSuccessCompaniesByRating(int rating)
         {
+            var successCompany = await _context.Company.Join(_context.Rating,
+                           c => c.RatingId,
+                           r => r.RatingId,
+                           (c, r) => new { company = c, rating = r })
+                           .Where(cca => cca.company.RatingId == cca.rating.RatingId && cca.rating.VotingValue > rating)
+                           .Select(ssa => ssa.company)
+                           .AsNoTracking()
+                           .ToListAsync();
 
-            throw new NotImplementedException();
+            return successCompany;
         }
 
-        public Task<Rating> GetRating(long companyId)
+        public async Task<Rating> GetRating(long companyId)
         {
 
-            throw new NotImplementedException();
+            var companyRating = await _context.Company.Join(_context.Rating,
+                                      c => c.RatingId,
+                                      r => r.RatingId,
+                                      (c, r) => new { company = c, rating = r })
+                                      .Where(cca => cca.company.RatingId == cca.rating.RatingId && cca.company.Id== companyId)
+                                      .Select(ssa => ssa.rating)
+                                      .AsNoTracking()
+                                      .FirstOrDefaultAsync();
+
+            return companyRating;
         }
 
         public Task<Rating> UpdateRating(long companyId, Rating rating)
