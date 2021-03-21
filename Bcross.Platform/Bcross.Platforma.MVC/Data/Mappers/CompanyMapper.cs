@@ -180,5 +180,15 @@ namespace Bcross.Platforma.MVC.Data.Mappers
             }
             return null;
         }
+
+        public List<RatingDTO> ToRatingDTO(List<Rating> company)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Rating> ToRating(List<RatingDTO> company)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
