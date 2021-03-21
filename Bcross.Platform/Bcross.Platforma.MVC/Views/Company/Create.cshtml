@@ -92,11 +92,23 @@
             <td>
                 @Html.TextBoxFor(m => m.LogoUrl)
             </td>
+        </tr>       
+        <tr>
+            <td>Rating UpdatedDate: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Rating.UpdatedDate)
+            </td>
         </tr>
         <tr>
-            <td>Rating: </td>
+            <td>Rating VotingCount: </td>
             <td>
-                @Html.TextBoxFor(m => m.Rating)
+                @Html.TextBoxFor(m => m.Rating.VotingCount)
+            </td>
+        </tr>
+        <tr>
+            <td>Rating VotingValue: </td>
+            <td>
+                @Html.TextBoxFor(m => m.Rating.VotingValue)
             </td>
         </tr>
         <tr>

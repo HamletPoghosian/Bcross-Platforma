@@ -26,7 +26,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
         public async Task<List<CompanyDTO>> GetAllCompaniesAsync()
         {
             var companies = await _companyRepository.GetAllCompanies();
-            var companyDTOs = _companyMapper.ToCompanyDTO(companies);
+            var companyDTOs = await _companyMapper.ToCompanyDTO(companies);
             return companyDTOs;
         }
 
@@ -36,7 +36,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
                 return null;
 
             var company = await _companyRepository.GetCompanyByCountryCode(companyCode);
-            var companyDTO = _companyMapper.ToCompanyDTO(company);
+            var companyDTO = await _companyMapper.ToCompanyDTO(company);
             return companyDTO;
         }
 
@@ -46,7 +46,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
                 return null;
 
             var company = await _companyRepository.GetCompanyById(id);
-            var companyDTO = _companyMapper.ToCompanyDTO(company);
+            var companyDTO = await _companyMapper.ToCompanyDTO(company);
             return companyDTO;
         }
 
@@ -56,7 +56,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
                 return null;
 
             var companies = await _companyRepository.GetCompanyByIds(companyIds);
-            var companyDTO = _companyMapper.ToCompanyDTO(companies);
+            var companyDTO = await _companyMapper.ToCompanyDTO(companies);
             return companyDTO;
         }
 
@@ -65,7 +65,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
             if (string.IsNullOrEmpty(companyName))
                 return null;
             var company = await _companyRepository.GetCompanyByName(companyName);
-            var companyDTO = _companyMapper.ToCompanyDTO(company);
+            var companyDTO = await _companyMapper.ToCompanyDTO(company);
             return companyDTO;
         }
 
@@ -78,7 +78,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
             var company = await _companyRepository.UpdateCompany(companyDB);
 
-            return _companyMapper.ToCompanyDTO(company);
+            return await _companyMapper.ToCompanyDTO(company);
         }
 
         public async Task<CompanyDTO> CreateCompanyAsync(CompanyDTO companyDTO)
@@ -90,7 +90,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
             var company = await _companyRepository.CreateCompany(companyDB);
 
-            return _companyMapper.ToCompanyDTO(company);
+            return await _companyMapper.ToCompanyDTO(company);
 
         }
 

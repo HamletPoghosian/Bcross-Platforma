@@ -1,4 +1,5 @@
-﻿using Bcross.Platforma.MVC.Models.Company;
+﻿using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
+using Bcross.Platforma.MVC.Models.Company;
 using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
 using Bcross.Platforma.MVC.Models.DbModels;
 using System;
@@ -10,12 +11,14 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 {
     public class CompanyMapper: ICompanyMapper
     {
-        public CompanyMapper()
-        {
+        private readonly IStatisticRepository _statisticRepository;
 
+        public CompanyMapper(IStatisticRepository statisticRepository)
+        {
+            _statisticRepository = statisticRepository;
         }      
 
-        public List<CompanyDTO> ToCompanyDTO(List<Company> companies)
+        public async Task<List<CompanyDTO>> ToCompanyDTO(List<Company> companies)
         {
             if (companies == null || companies.Count == 0)
                 return null;
@@ -24,6 +27,8 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 
             foreach (var company in companies)
             {
+                var rating = await _statisticRepository.GetRating(company.Id);
+
                 companyDTO.Add(new CompanyDTO
                 {
                     Id = company.Id,
@@ -42,9 +47,9 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                     Zip = company.Zip,
                     Rating = new RatingDTO
                     {
-                        RatingId = company.Rating.RatingId,
-                        VotingCount = company.Rating.VotingCount,
-                        VotingValue = company.Rating.VotingValue
+                        RatingId = rating.RatingId,
+                        VotingCount = rating.VotingCount,
+                        VotingValue = rating.VotingValue
 
                     }
                 }) ;
@@ -53,14 +58,14 @@ namespace Bcross.Platforma.MVC.Data.Mappers
             return companyDTO;
         }
 
-        public CompanyDTO ToCompanyDTO(Company company)
+        public async Task<CompanyDTO> ToCompanyDTO(Company company)
         {
             if (company == null)
                 return null;
 
-            CompanyDTO companyDTO;
+            var rating = await _statisticRepository.GetRating(company.Id);
 
-            companyDTO = new CompanyDTO
+            var companyDTO = new CompanyDTO
             {
                 Id = company.Id,
                 City = company.City,
@@ -78,9 +83,9 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 Zip = company.Zip,
                 Rating = new RatingDTO
                 {
-                    RatingId = company.Rating.RatingId,
-                    VotingCount = company.Rating.VotingCount,
-                    VotingValue = company.Rating.VotingValue
+                    RatingId = rating.RatingId,
+                    VotingCount = rating.VotingCount,
+                    VotingValue = rating.VotingValue
 
                 }
             };
@@ -127,6 +132,17 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 return null;
 
             Company companyDB;
+            Rating ratingDB;
+
+            ratingDB = new Rating
+            {
+                UpdatedDate = companyDTO.Rating.UpdatedDate,
+                VotingValue = companyDTO.Rating.VotingValue,
+                VotingCount = companyDTO.Rating.VotingCount
+
+            };
+
+
 
             companyDB = new Company
             {
@@ -144,7 +160,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 Remarks = companyDTO.Remarks,
                 StateCode = companyDTO.StateCode,
                 Zip = companyDTO.Zip,
-                RatingId=companyDTO.Rating.RatingId
+                Rating = ratingDB
             };
 
 
@@ -181,14 +197,50 @@ namespace Bcross.Platforma.MVC.Data.Mappers
             return null;
         }
 
-        public List<RatingDTO> ToRatingDTO(List<Rating> company)
+        public List<RatingDTO> ToRatingDTO(List<Rating> ratings)
         {
-            throw new NotImplementedException();
+
+            if (ratings == null || ratings.Count == 0)
+                return null;
+
+            List<RatingDTO> ratingDB = new List<RatingDTO>();
+
+            foreach (var rating in ratings)
+            {
+                ratingDB.Add(new RatingDTO
+                {
+                    RatingId = rating.RatingId,
+                    UpdatedDate= rating.UpdatedDate,
+                     VotingCount= rating.VotingCount,
+                     VotingValue=rating.VotingValue
+
+                });
+            }
+
+            return ratingDB;
         }
 
-        public List<Rating> ToRating(List<RatingDTO> company)
+        public List<Rating> ToRating(List<RatingDTO> ratings)
         {
-            throw new NotImplementedException();
+            if (ratings == null || ratings.Count == 0)
+                return null;
+
+            List<Rating> ratingDB = new List<Rating>();
+
+            foreach (var rating in ratings)
+            {
+                ratingDB.Add(new Rating
+                {
+                    RatingId = rating.RatingId,
+                    UpdatedDate = rating.UpdatedDate,
+                    VotingCount = rating.VotingCount,
+                    VotingValue = rating.VotingValue
+
+                });
+            }
+
+            return ratingDB;
         }
+
     }
 }

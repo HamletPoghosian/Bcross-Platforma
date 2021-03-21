@@ -35,10 +35,11 @@ namespace  Bcross.Platforma.MVC.Data.Services.Extensions
             return null;
         }
 
-        public Task<List<CompanyDTO>> GetAllSuccessCompanies()
+        public async Task<List<CompanyDTO>> GetAllSuccessCompanies()
         {
-            var result = await _statisticRepository.GetAllSuccessCompanies(companyId, ratingDB);
-            var ratingDTO = _companyMapper.ToRatingDTO(result);
+            var companies = await _statisticRepository.GetAllSuccessCompanies();
+            var companiesDTO = await _companyMapper.ToCompanyDTO(companies);
+            return companiesDTO;
         }
 
         public Task<List<CompanyDTO>> GetAllSuccessCompaniesByCountry(string countryName)
