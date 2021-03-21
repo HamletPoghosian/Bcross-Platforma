@@ -22,6 +22,7 @@ namespace Bcross.Platforma.MVC.Data
             services.AddScoped<IContractRepository, ContractRepository>();
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IStatisticService, StatisticService>();
+            services.AddScoped<IStatisticRepository, StatisticRepository>();
 
 
             return services;
