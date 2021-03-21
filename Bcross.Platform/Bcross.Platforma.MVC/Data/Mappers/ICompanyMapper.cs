@@ -10,13 +10,13 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 {
     public interface ICompanyMapper
     {
-        List<CompanyDTO> ToCompanyDTO(List<Company> company);
-        CompanyDTO ToCompanyDTO(Company company);
+        Task<CompanyDTO> ToCompanyDTO(Company company);
         List<Company> ToCompanyDB(List<CompanyDTO> company);
         Company ToCompanyDB(CompanyDTO company);
         RatingDTO ToRatingDTO(Rating company);
         Rating ToRating(RatingDTO company);
-        List<RatingDTO> ToRatingDTO(List<Rating> company);
-        List<Rating> ToRating(List<RatingDTO> company);
+        List<RatingDTO> ToRatingDTO(List<Rating> ratings);
+        List<Rating> ToRating(List<RatingDTO> ratings);
+        Task<List<CompanyDTO>> ToCompanyDTO(List<Company> companies);
     }
 }

@@ -79,6 +79,7 @@ namespace Bcross.Platforma.MVC.Data.Repositories
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
 
+
             return company;
         }
 
