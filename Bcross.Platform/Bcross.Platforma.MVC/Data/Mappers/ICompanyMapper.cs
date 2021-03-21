@@ -16,5 +16,7 @@ namespace Bcross.Platforma.MVC.Data.Mappers
         Company ToCompanyDB(CompanyDTO company);
         RatingDTO ToRatingDTO(Rating company);
         Rating ToRating(RatingDTO company);
+        List<RatingDTO> ToRatingDTO(List<Rating> company);
+        List<Rating> ToRating(List<RatingDTO> company);
     }
 }
