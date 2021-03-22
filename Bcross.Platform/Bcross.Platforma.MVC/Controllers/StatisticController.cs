@@ -9,6 +9,10 @@ namespace Bcross.Platforma.MVC.Controllers
 {
     public class StatisticController : Controller
     {
+        public StatisticController()
+        {
+
+        }
         // GET: StatisticController
         public ActionResult Index()
         {

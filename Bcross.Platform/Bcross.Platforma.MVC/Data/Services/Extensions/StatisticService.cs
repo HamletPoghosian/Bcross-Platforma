@@ -42,9 +42,11 @@ namespace  Bcross.Platforma.MVC.Data.Services.Extensions
             return companiesDTO;
         }
 
-        public Task<List<CompanyDTO>> GetAllSuccessCompaniesByCountry(string countryName)
+        public async Task<List<CompanyDTO>> GetAllSuccessCompaniesByCountry(string countryName)
         {
-            throw new NotImplementedException();
+            var companies = await _statisticRepository.GetAllSuccessCompaniesByCountry(countryName);
+            var companiesDTO = await _companyMapper.ToCompanyDTO(companies);
+            return companiesDTO;
         }
 
         public Task<List<CompanyDTO>> GetAllSuccessCompaniesByRating(int rating)
