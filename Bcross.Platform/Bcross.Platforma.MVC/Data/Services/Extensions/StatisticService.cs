@@ -58,9 +58,9 @@ namespace  Bcross.Platforma.MVC.Data.Services.Extensions
 
         public async Task<RatingDTO> GetRating(long companyId)
         {
-            var companies = await _statisticRepository.GetRating(companyId);
-            var companiesDTO = await _companyMapper.ToCompanyDTO(companies);
-            return companiesDTO;
+            var  rating = await _statisticRepository.GetRating(companyId);
+            var ratingDTO = _companyMapper.ToRatingDTO(rating);
+            return ratingDTO;
         }
 
         public Task<RatingDTO> UpdateRating(long companyId, RatingDTO rating)
