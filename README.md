@@ -14,7 +14,7 @@
       dir="ltr"
       itemprop="heading"
       lang="en-US"
-      tabindex="1"
+      tabindex="2"
       title="Example heading">
  Դիպլոմային Աշխատանք     
   </h1>
