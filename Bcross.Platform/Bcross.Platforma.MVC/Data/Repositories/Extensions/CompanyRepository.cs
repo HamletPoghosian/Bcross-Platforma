@@ -142,7 +142,7 @@ namespace Bcross.Platforma.MVC.Data.Repositories
             return null;
         }
 
-        public async void DeleteCompanyByName(string companyName)
+        public async Task DeleteCompanyByName(string companyName)
         {
 
             if (string.IsNullOrEmpty(companyName))
@@ -155,7 +155,7 @@ namespace Bcross.Platforma.MVC.Data.Repositories
 
         }
 
-        public async void DeleteCompanyById(long companyId)
+        public async Task DeleteCompanyById(long companyId)
         {
             if (companyId < 1) 
                 return;
