@@ -94,20 +94,20 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
         }
 
-        public void DeleteCompanyByIdAsync(long companyId)
+        public async Task DeleteCompanyByIdAsync(long companyId)
         {
             if (companyId < 1)
                 return;
 
-            throw new NotImplementedException();
+            await _companyRepository.DeleteCompanyById(companyId);
         }
 
-        public void DeleteCompanyByNameAsync(string companyName)
+        public async Task DeleteCompanyByNameAsync(string companyName)
         {
             if (string.IsNullOrEmpty(companyName))
                 return;
 
-            throw new NotImplementedException();
+            await _companyRepository.DeleteCompanyByName(companyName);
         }
     }
 }
