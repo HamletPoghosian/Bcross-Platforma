@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Bcross.Platforma.MVC.Data.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,26 @@ namespace Bcross.Platforma.MVC.Controllers
 {
     public class StatisticController : Controller
     {
-        public StatisticController()
-        {
+        private readonly IStatisticService _statisticService;
 
-        }
-        // GET: StatisticController
-        public ActionResult Index()
+        public StatisticController(IStatisticService statisticService)
         {
-            return View();
+            _statisticService = statisticService;
+        }
+
+        // GET: StatisticController
+        public async Task<ActionResult> Index()
+        {
+            var companyDTOs = await _statisticService.GetAllSuccessCompanies();
+            return View(companyDTOs);
         }
 
         // GET: StatisticController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var companyDTOs = await _statisticService.GetAllSuccessCompaniesByRating(id);
+
+            return View(companyDTOs);
         }
 
         // GET: StatisticController/Create
