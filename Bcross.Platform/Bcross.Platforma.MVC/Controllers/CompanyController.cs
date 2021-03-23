@@ -99,8 +99,10 @@ namespace Bcross.Platforma.MVC.Controllers
         }
 
         // GET: Company/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            await _companyService.DeleteCompanyByIdAsync(id);
+
             return View();
         }
 
