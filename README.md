@@ -6,7 +6,7 @@
       lang="en-US"
       tabindex="1"
       title="Example heading">
-      Diploma Thesis 
+      Diploma  Thesis 
      
   </h1>
 <h1 accesskey="A"
@@ -16,7 +16,7 @@
       lang="en-US"
       tabindex="2"
       title="Example heading">
- Դիպլոմային Աշխատանք     
+ Դիպլոմային  Աշխատանք     
   </h1>
 
 
