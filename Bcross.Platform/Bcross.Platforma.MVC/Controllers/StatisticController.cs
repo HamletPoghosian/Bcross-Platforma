@@ -1,4 +1,5 @@
 ﻿using Bcross.Platforma.MVC.Data.Services.Interfaces;
+using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -41,10 +42,12 @@ namespace Bcross.Platforma.MVC.Controllers
         // POST: StatisticController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(long companyID, RatingDTO ratingDTO)
         {
             try
             {
+                var companyDTOs = await _statisticService.AddRating(companyID, ratingDTO);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
