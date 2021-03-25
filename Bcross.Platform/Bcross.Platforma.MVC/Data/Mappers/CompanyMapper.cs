@@ -242,5 +242,31 @@ namespace Bcross.Platforma.MVC.Data.Mappers
             return ratingDB;
         }
 
+        public List<Contract> ToContract(List<ContractDTO>  contracts)
+        {
+            if (contracts == null || contracts.Count == 0)
+                return null;
+
+            List<Contract> contractDB = new List<Contract>();
+
+            foreach (var  contract in contracts)
+            {
+                contractDB.Add(new Contract
+                {
+                  FirstCompanyId=contract.FirstCompanyId,
+                  SecondCompanyId=contract.SecondCompanyId,
+                  Price=contract.Price,
+                  StartDay=contract.StartDay,
+                  FinishDay=contract.FinishDay
+                });
+            }
+
+            return ratingDB;
+        }
+
+        public List<ContractDTO> ToContractDTO(List<Contract> ratings)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
