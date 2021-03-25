@@ -261,12 +261,29 @@ namespace Bcross.Platforma.MVC.Data.Mappers
                 });
             }
 
-            return ratingDB;
+            return contractDB;
         }
 
-        public List<ContractDTO> ToContractDTO(List<Contract> ratings)
+        public List<ContractDTO> ToContractDTO(List<Contract> contracts)
         {
-            throw new NotImplementedException();
+            if (contracts == null || contracts.Count == 0)
+                return null;
+
+            List<ContractDTO> contractDTO = new List<ContractDTO>();
+
+            foreach (var contract in contracts)
+            {
+                contractDTO.Add(new ContractDTO
+                {
+                    FirstCompanyId = contract.FirstCompanyId,
+                    SecondCompanyId = contract.SecondCompanyId,
+                    Price = contract.Price,
+                    StartDay = contract.StartDay,
+                    FinishDay = contract.FinishDay
+                });
+            }
+
+            return contractDTO;
         }
     }
 }
