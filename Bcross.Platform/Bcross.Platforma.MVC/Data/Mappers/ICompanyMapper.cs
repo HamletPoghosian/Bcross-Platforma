@@ -14,12 +14,14 @@ namespace Bcross.Platforma.MVC.Data.Mappers
         List<Company> ToCompanyDB(List<CompanyDTO> company);
         Company ToCompanyDB(CompanyDTO company);
         RatingDTO ToRatingDTO(Rating rating);
-        Rating ToRating(RatingDTO company);
+        Rating ToRating(RatingDTO rating);
         List<RatingDTO> ToRatingDTO(List<Rating> ratings);
         List<Rating> ToRating(List<RatingDTO> ratings);
         Task<List<CompanyDTO>> ToCompanyDTO(List<Company> companies);
-        List<Contract> ToContract(List<ContractDTO> ratings);
-        List<ContractDTO> ToContractDTO(List<Contract> ratings);
+        List<Contract> ToContract(List<ContractDTO> contracts);
+        List<ContractDTO> ToContractDTO(List<Contract> contracts);
+        Contract ToContract(ContractDTO contract);
+        ContractDTO ToContractDTO(Contract contract);
 
     }
 }
