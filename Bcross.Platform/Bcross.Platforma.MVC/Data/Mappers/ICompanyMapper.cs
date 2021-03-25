@@ -18,5 +18,8 @@ namespace Bcross.Platforma.MVC.Data.Mappers
         List<RatingDTO> ToRatingDTO(List<Rating> ratings);
         List<Rating> ToRating(List<RatingDTO> ratings);
         Task<List<CompanyDTO>> ToCompanyDTO(List<Company> companies);
+        List<Contract> ToContract(List<ContractDTO> ratings);
+        List<ContractDTO> ToContractDTO(List<Contract> ratings);
+
     }
 }
