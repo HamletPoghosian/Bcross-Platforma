@@ -288,12 +288,12 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 
         public Contract ToContract(ContractDTO contract)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public ContractDTO ToContractDTO(Contract contract)
         {
-            throw new NotImplementedException();
+
         }
     }
 }
