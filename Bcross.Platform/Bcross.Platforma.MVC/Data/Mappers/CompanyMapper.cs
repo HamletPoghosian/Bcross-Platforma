@@ -288,6 +288,18 @@ namespace Bcross.Platforma.MVC.Data.Mappers
 
         public Contract ToContract(ContractDTO contract)
         {
+            if (contract != null)
+            {
+                return new Contract()
+                {
+                    FirstCompanyId = contract.FirstCompanyId,
+                    SecondCompanyId = contract.SecondCompanyId,
+                    Price = contract.Price,
+                    StartDay = contract.StartDay,
+                    FinishDay = contract.FinishDay
+                };
+            }
+
             return null;
         }
 
