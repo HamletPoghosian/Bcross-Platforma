@@ -47,6 +47,7 @@ __________
 + Data Transfer Objects (DTOs)
 + AutoMapper
 + MediatR
++ 
 __________
 
 ### Used Packages
