@@ -1,6 +1,7 @@
 ﻿using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
 using Bcross.Platforma.MVC.Models.AppDBContext;
 using Bcross.Platforma.MVC.Models.DbModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,27 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             if (contract == null)
                 return null;
 
-              await _context.Contract.AddAsync(contract);
-              await _context.SaveChangesAsync();
-              return null;
+            await _context.Contract.AddAsync(contract);
+            await _context.SaveChangesAsync();
+
+            var contractDB = await GetContractByCode(contract.ContractCode);
+            return contractDB;
         }
 
         public Task<List<Contract>> GetAllContracts()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Contract> GetContractByCode(string contractCode)
+        {
+            if (string.IsNullOrWhiteSpace(contractCode))
+                return null;
+            var contractDB = await _context.Contract.Where(e => e.ContractCode == contractCode)
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
+            
+            return contractDB;
         }
 
         public Task<List<Contract>> GetContractByFirstCompanyIds(List<long> companyIds)
