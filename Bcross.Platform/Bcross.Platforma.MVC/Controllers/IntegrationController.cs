@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Bcross.Platforma.MVC.Controllers
 {
     public class IntegrationController : Controller
+
     {
         // GET: IntegrationController
         public ActionResult Index()

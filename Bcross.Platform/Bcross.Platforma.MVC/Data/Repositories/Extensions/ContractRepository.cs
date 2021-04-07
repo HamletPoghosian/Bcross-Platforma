@@ -16,9 +16,14 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
         {
             _context = context;
         }
-        public Task<Contract> CreateContract(Contract company)
+        public async Task<Contract> CreateContract(Contract contract)
         {
-            throw new NotImplementedException();
+            if (contract == null)
+                return null;
+
+              await _context.Contract.AddAsync(contract);
+              await _context.SaveChangesAsync();
+              return null;
         }
 
         public Task<List<Contract>> GetAllContracts()
