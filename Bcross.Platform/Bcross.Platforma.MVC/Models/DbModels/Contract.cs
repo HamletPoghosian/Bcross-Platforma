@@ -27,5 +27,8 @@ namespace Bcross.Platforma.MVC.Models.DbModels
 
         [Column("finish_day")]
         public DateTime FinishDay { get; set; }
+
+        [Column("contract_code")]
+        public string ContractCode { get; set; }
     }
 }
