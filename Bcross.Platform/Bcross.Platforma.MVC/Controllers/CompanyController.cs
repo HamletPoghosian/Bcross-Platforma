@@ -18,9 +18,7 @@ namespace Bcross.Platforma.MVC.Controllers
             _companyService = companyService;
         }
         // GET: Company
-        public async Task<ActionResult> Index()
-        
-        
+        public async Task<ActionResult> Index()               
         {
             var companyDTOs = await _companyService.GetAllCompaniesAsync();
 

@@ -12,12 +12,10 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
     public class StatisticRepository : IStatisticRepository
     {
         private readonly BcrossContext _context;
-        private readonly ICompanyRepository _companyRepository;
 
-        public StatisticRepository(BcrossContext context, ICompanyRepository companyRepository)
+        public StatisticRepository(BcrossContext context)
         {
             _context = context;
-            _companyRepository = companyRepository;
         }
         public async Task<Rating> AddRating(long companyId, Rating rating)
         {
