@@ -29,9 +29,10 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             return contractDB;
         }
 
-        public Task<List<Contract>> GetAllContracts()
+        public async Task<List<Contract>> GetAllContracts()
         {
-            throw new NotImplementedException();
+            var contractsDB = await _context.Contract.AsNoTracking().ToListAsync();
+            return contractsDB;
         }
 
         public async Task<Contract> GetContractByCode(string contractCode)
