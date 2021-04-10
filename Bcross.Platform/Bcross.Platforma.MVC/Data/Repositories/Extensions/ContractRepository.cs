@@ -67,9 +67,16 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             return contractsDB;
         }
 
-        public Task<List<Contract>> GetContractBySecoundCompanyIds(List<long> companyIds)
+        public async Task<List<Contract>> GetContractBySecoundCompanyIds(List<long> companyIds)
         {
-            throw new NotImplementedException();
+            if (companyIds != null && !companyIds.Any())
+                return null;
+
+            var contractsDB = await _context.Contract.Where(e => companyIds.Contains(e.SecondCompanyId))
+                .AsNoTracking()
+                .ToListAsync();
+
+            return contractsDB;
         }
     }
 }
