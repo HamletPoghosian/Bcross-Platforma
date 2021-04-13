@@ -1,4 +1,5 @@
-﻿using Bcross.Platforma.MVC.Data.Services.Interfaces;
+﻿using Bcross.Platforma.MVC.Data.Repositories.Interfaces;
+using Bcross.Platforma.MVC.Data.Services.Interfaces;
 using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,20 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 {
     public class ContractService : IContractService
     {
-        public Task<ContractDTO> CreateContractAsync(ContractDTO company)
+        private readonly IContractRepository _contractRepository;
+
+        public ContractService(IContractRepository contractRepository)
+        {
+            _contractRepository = contractRepository;
+        }
+
+        public async Task<ContractDTO> CreateContractAsync(ContractDTO company)
         {
             throw new NotImplementedException();
         }
 
         public Task<List<ContractDTO>> GetAllContractsAsync()
         {
-            throw new NotImplementedException();
         }
 
         public Task<List<ContractDTO>> GetContractByFirstCompanyIdsAsync(List<long> companyIds)

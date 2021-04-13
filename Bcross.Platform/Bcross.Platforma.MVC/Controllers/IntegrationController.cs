@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Bcross.Platforma.MVC.Data.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,20 @@ using System.Threading.Tasks;
 namespace Bcross.Platforma.MVC.Controllers
 {
     public class IntegrationController : Controller
-
     {
-        // GET: IntegrationController
-        public ActionResult Index()
+        private readonly IContractService _companyService;
+
+
+        public IntegrationController(IContractService companyService)
         {
-            return View();
+            _companyService = companyService;
+        }
+
+        // GET: IntegrationController
+        public async Task<ActionResult> Index()
+        {
+            var contractDTOs = await _companyService.GetAllContractsAsync();
+            return View(contractDTOs);
         }
 
         // GET: IntegrationController/Details/5
