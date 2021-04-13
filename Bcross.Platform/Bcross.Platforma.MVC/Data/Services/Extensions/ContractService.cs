@@ -20,9 +20,19 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
             _companyMapper = companyMapper;
         }
 
-        public async Task<ContractDTO> CreateContractAsync(ContractDTO company)
+        public async Task<ContractDTO> CreateContractAsync(ContractDTO contract)
         {
-            throw new NotImplementedException();
+            if (contract == null)
+                return null;
+
+            var contractDB = _companyMapper.ToContract(contract);
+
+            var newcontractDB = await _contractRepository.CreateContract(contractDB);
+
+            var contractDTO = _companyMapper.ToContractDTO(newcontractDB);
+
+            return contractDTO;
+
         }
 
         public async Task<List<ContractDTO>> GetAllContractsAsync()
