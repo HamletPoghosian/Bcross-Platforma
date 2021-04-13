@@ -47,16 +47,11 @@ namespace Bcross.Platforma.MVC.Controllers
             return View(companyDTOs);
         }
 
-        public ActionResult<List<CompanyDTO>> SearchCompanies()
+        public ActionResult<List<CompanyDTO>> SearchCompanies(string name , string CountryCode)
         {
             return View();
         }
 
-        // GET: Company/Create 
-        public ActionResult Create()
-        {
-            return View();
-        }
 
         // POST: Company/Create
         [HttpPost("Create")]
