@@ -47,9 +47,15 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
             throw new NotImplementedException();
         }
 
-        public Task<ContractDTO> GetContractByIdAsync(long id)
+        public async Task<ContractDTO> GetContractByIdAsync(long id)
         {
-            throw new NotImplementedException();
+            if (id < 1)
+                return null;
+
+            var contract = await _contractRepository.GetContractById(id);
+            var contractsDTO = _companyMapper.ToContractDTO(contract);
+
+            return contractsDTO;
         }
 
         public Task<List<ContractDTO>> GetContractBySecoundCompanyIdsAsync(List<long> companyIds)
