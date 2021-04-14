@@ -1,4 +1,5 @@
 ﻿using Bcross.Platforma.MVC.Data.Services.Interfaces;
+using Bcross.Platforma.MVC.Models.DataTransferObjects.Companies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,11 +43,13 @@ namespace Bcross.Platforma.MVC.Controllers
         // POST: IntegrationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(ContractDTO contract)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var contractDTOs = await _companyService.CreateContractAsync(contract);
+
+                return RedirectToAction(nameof(Index), contractDTOs);
             }
             catch
             {
