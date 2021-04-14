@@ -26,9 +26,11 @@ namespace Bcross.Platforma.MVC.Controllers
         }
 
         // GET: IntegrationController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var contractDTOs = await _companyService.GetContractByIdAsync(id);
+
+            return View(contractDTOs);
         }
 
         // GET: IntegrationController/Create
