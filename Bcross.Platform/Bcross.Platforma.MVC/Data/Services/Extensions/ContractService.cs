@@ -77,5 +77,21 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
             return contractsDTO;
         }
+
+        public async Task<ContractDTO> UpdateContractAsync(long id, ContractDTO contract)
+        {
+            if (contract == null || id < 0) 
+                return null;
+
+            var contractDB = _companyMapper.ToContract(contract);
+
+            var contractDB = await _contractRepository.GetContractById(id);
+
+            var newcontractDB = await _contractRepository.CreateContract(contractDB);
+
+            var contractDTO = _companyMapper.ToContractDTO(newcontractDB);
+
+            return contractDTO;
+        }
     }
 }

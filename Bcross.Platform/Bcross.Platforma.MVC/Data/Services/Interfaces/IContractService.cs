@@ -13,5 +13,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Interfaces
         Task<List<ContractDTO>> GetContractByFirstCompanyIdsAsync(List<long> companyIds);
         Task<List<ContractDTO>> GetContractBySecoundCompanyIdsAsync(List<long> companyIds);
         Task<ContractDTO> CreateContractAsync(ContractDTO company);
+        Task<ContractDTO> UpdateContractAsync(long id ,ContractDTO company);
+
     }
 }

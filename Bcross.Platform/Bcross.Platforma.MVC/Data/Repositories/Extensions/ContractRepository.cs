@@ -78,5 +78,10 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 
             return contractsDB;
         }
+
+        public Task<Contract> UpdateContractAsync(long id, Contract company)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
