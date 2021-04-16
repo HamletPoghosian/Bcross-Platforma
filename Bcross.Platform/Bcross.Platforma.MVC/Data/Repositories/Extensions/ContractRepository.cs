@@ -79,9 +79,25 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
             return contractsDB;
         }
 
-        public Task<Contract> UpdateContractAsync(long id, Contract company)
+        public async Task<Contract> UpdateContractAsync(long id, Contract company)
         {
-            throw new NotImplementedException();
+            var companyDB = await GetContractById(id);
+            if (company != null)
+            {
+                companyDB.ContractCode = company.ContractCode;
+                companyDB.FinishDay = company.FinishDay;
+                companyDB.FirstCompanyId = company.FirstCompanyId;
+                companyDB.Price = company.Price;
+                companyDB.SecondCompanyId = company.SecondCompanyId;
+                companyDB.StartDay = company.StartDay;
+
+                _context.Contract.Update(company);
+                await _context.SaveChangesAsync();
+
+                return companyDB;
+            }
+
+            return null;
         }
     }
 }
