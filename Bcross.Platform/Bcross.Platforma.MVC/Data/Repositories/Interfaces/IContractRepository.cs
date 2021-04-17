@@ -14,6 +14,8 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Interfaces
         Task<Contract> CreateContract(Contract contract);
         Task<Contract> GetContractByCode(string contractCode);
         Task<Contract> UpdateContractAsync(long id, Contract contract);
+        Task<Contract> UpdateContractAsync(Contract contract);
+
 
     }
 }
