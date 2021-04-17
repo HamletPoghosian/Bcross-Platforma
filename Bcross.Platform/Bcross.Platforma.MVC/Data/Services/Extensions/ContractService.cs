@@ -99,7 +99,7 @@ namespace Bcross.Platforma.MVC.Data.Services.Extensions
 
             var contractDB = _companyMapper.ToContract(contract);
 
-            var newcontractDB = await _contractRepository.UpdateContractAsync(id, contractDB);
+            var newcontractDB = await _contractRepository.UpdateContractAsync(contractDB);
 
             var contractDTO = _companyMapper.ToContractDTO(newcontractDB);
 

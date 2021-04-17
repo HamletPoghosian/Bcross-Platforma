@@ -99,5 +99,26 @@ namespace Bcross.Platforma.MVC.Data.Repositories.Extensions
 
             return null;
         }
+
+        public async Task<Contract> UpdateContractAsync(Contract contract)
+        {
+            var companyDB = await GetContractByCode(contract.ContractCode);
+            if (contract != null)
+            {
+                companyDB.ContractCode = contract.ContractCode;
+                companyDB.FinishDay = contract.FinishDay;
+                companyDB.FirstCompanyId = contract.FirstCompanyId;
+                companyDB.Price = contract.Price;
+                companyDB.SecondCompanyId = contract.SecondCompanyId;
+                companyDB.StartDay = contract.StartDay;
+
+                _context.Contract.Update(contract);
+                await _context.SaveChangesAsync();
+
+                return companyDB;
+            }
+
+            return null;
+        }
     }
 }
