@@ -68,10 +68,15 @@ namespace Bcross.Platforma.MVC.Controllers
         // POST: IntegrationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async ActionResult Edit(List<ContractDTO> contracts)
         {
             try
             {
+                foreach (var item in contracts)
+                {
+                var contractDTOs = await _companyService.UpdateContractAsync(id, item);
+
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
