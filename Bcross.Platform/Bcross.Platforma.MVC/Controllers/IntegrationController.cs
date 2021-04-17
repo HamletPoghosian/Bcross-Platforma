@@ -60,9 +60,9 @@ namespace Bcross.Platforma.MVC.Controllers
         // GET: IntegrationController/Edit/5
         public async Task<ActionResult> Edit(int id , ContractDTO contract)
         {
-            var contractDTOs = await _companyService.GetContractByIdAsync(id);
+            var contractDTOs = await _companyService.UpdateContractAsync(id, contract);
 
-            return View();
+            return View(contractDTOs);
         }
 
         // POST: IntegrationController/Edit/5
