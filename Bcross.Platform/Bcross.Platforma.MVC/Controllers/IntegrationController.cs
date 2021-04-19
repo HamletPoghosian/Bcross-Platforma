@@ -34,11 +34,6 @@ namespace Bcross.Platforma.MVC.Controllers
             return View(contractDTOs);
         }
 
-        // GET: IntegrationController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
         // POST: IntegrationController/Create
         [HttpPost]
