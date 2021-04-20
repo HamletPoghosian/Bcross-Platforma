@@ -33,6 +33,14 @@ namespace Bcross.Platforma.MVC.Controllers
             return View(companyDTOs);
         }
 
+        // GET: StatisticController/Details/5
+        public async Task<ActionResult> GetByCompaniesByCountry(string countryCode)
+        {
+            var companyDTOs = await _statisticService.GetAllSuccessCompaniesByCountry(countryCode);
+
+            return View(companyDTOs);
+        }
+
         // GET: StatisticController/Create
         public ActionResult Create()
         {
