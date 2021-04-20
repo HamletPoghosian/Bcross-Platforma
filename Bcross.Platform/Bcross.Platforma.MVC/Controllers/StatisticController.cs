@@ -65,10 +65,12 @@ namespace Bcross.Platforma.MVC.Controllers
         // POST: StatisticController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, RatingDTO ratingDTO)
         {
             try
             {
+                var companyDTOs = await _statisticService.UpdateRating(id, ratingDTO);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
