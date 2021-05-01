@@ -106,6 +106,9 @@ namespace Bcross.Platforma.MVC.Controllers
         {
             try
             {
+                if(id<0)
+                    return View();
+
                 await _companyService.DeleteCompanyByIdAsync(id);
 
                 return RedirectToAction(nameof(Index));
