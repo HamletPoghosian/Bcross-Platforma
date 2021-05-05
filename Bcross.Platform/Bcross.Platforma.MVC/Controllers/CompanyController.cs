@@ -107,10 +107,15 @@ namespace Bcross.Platforma.MVC.Controllers
         // POST: Company/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, IFormCollection collection)
         {
             try
             {
+                if(id<0)
+                    return View();
+
+                await _companyService.DeleteCompanyByIdAsync(id);
+
                 return RedirectToAction(nameof(Index));
             }
             catch

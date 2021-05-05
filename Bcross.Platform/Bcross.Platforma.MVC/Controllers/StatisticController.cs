@@ -108,9 +108,12 @@ namespace Bcross.Platforma.MVC.Controllers
             }
         }
 
-        public ActionResult GetReting(int companyId)
+        [HttpGet]
+        public async Task<ActionResult> GetReting(int companyId)
         {
-            return View();
+            var companyDTOs = await _statisticService.GetRating(companyId);
+
+            return View(companyDTOs);
         }
     }
 }
