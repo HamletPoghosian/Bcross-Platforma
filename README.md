@@ -87,7 +87,7 @@ __________
 
 # Presentations 
 
-https://www.canva.com/design/DAEV0cWWXp4/rPZNgveIb6LXND7Bau675A
+https://www.canva.com/design/DAEV0cWWXp4/rPZNgveIb6LXND7Bau675A/edit
 __________
 
 ### 2021 
